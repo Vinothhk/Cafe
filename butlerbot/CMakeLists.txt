@@ -10,7 +10,10 @@ find_package(ament_cmake REQUIRED)
 find_package(urdf REQUIRED)
 find_package(xacro REQUIRED)
 find_package(rclpy REQUIRED)
-
+find_package(ros2_control REQUIRED)
+find_package(gazebo_ros2_control REQUIRED)
+find_package(joint_state_broadcaster REQUIRED)
+find_package(velocity_controllers REQUIRED)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -22,5 +25,16 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
+install(
+  DIRECTORY
+    config
+    launch
+    models
+    worlds
+    media
+    meshes
+    urdf
+  DESTINATION
+    share/${PROJECT_NAME}/
+)
 ament_package()

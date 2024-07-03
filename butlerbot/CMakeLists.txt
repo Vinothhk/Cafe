@@ -14,6 +14,10 @@ find_package(ros2_control REQUIRED)
 find_package(gazebo_ros2_control REQUIRED)
 find_package(joint_state_broadcaster REQUIRED)
 find_package(velocity_controllers REQUIRED)
+find_package(nav2_common REQUIRED)
+find_package(nav2_msgs REQUIRED)
+find_package(nav2_util REQUIRED)
+find_package(nav2_core REQUIRED)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -34,6 +38,7 @@ install(
     media
     meshes
     urdf
+    maps
   DESTINATION
     share/${PROJECT_NAME}/
 )

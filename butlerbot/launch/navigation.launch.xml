@@ -1,0 +1,5 @@
+<?xml version='1.0'?>
+<launch>
+    <include file="$(find-pkg-share butlerbot)/launch/localisation.launch.py"/>
+    <include file="$(find-pkg-share butlerbot)/launch/pathplanning.launch.py"/>
+</launch>

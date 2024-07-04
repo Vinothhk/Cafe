@@ -38,17 +38,14 @@ amcl:
     z_short: 0.05
     scan_topic: scan
     map_topic: map
-    set_initial_pose: false
+    set_initial_pose: true
     always_reset_initial_pose: true
     first_map_only: false
     initial_pose:
-      x: -7.8
-      y: 5.0
-      z: 0.0
-      #x: -0.10
-      #y: 0.007
-      #z: 0.004
-      yaw: -1.57
+      x: 0.624
+      y: 0.033
+      z: 0.009
+      yaw: 0.0
 
 amcl_map_client:
   ros__parameters:

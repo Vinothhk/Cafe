@@ -1,0 +1,20 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/vinoth/ros2_ws/install/my_python/lib/python3.10/site-packages",
+        "/home/vinoth/moveit_ws/install/moveit_configs_utils/lib/python3.10/site-packages",
+        "/home/vinoth/moveit_ws/install/srdfdom/local/lib/python3.10/dist-packages",
+        "/home/vinoth/moveit_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages",
+        "/home/vinoth/moveit_ws/install/launch_param_builder/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/vinoth/ros2_ws/install/my_python/lib/python3.10/site-packages",
+        "/home/vinoth/moveit_ws/install/moveit_configs_utils/lib/python3.10/site-packages",
+        "/home/vinoth/moveit_ws/install/srdfdom/local/lib/python3.10/dist-packages",
+        "/home/vinoth/moveit_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages",
+        "/home/vinoth/moveit_ws/install/launch_param_builder/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

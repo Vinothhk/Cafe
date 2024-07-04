@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(butlerbot)
+project(bb_interfaces)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,17 +7,17 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(urdf REQUIRED)
-find_package(xacro REQUIRED)
-find_package(rclpy REQUIRED)
-find_package(ros2_control REQUIRED)
-find_package(gazebo_ros2_control REQUIRED)
-find_package(joint_state_broadcaster REQUIRED)
-find_package(velocity_controllers REQUIRED)
-find_package(nav2_common REQUIRED)
-find_package(nav2_msgs REQUIRED)
-find_package(nav2_util REQUIRED)
-find_package(nav2_core REQUIRED)
+find_package(geometry_msgs REQUIRED)
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+rosidl_generate_interfaces(${PROJECT_NAME}
+    "msg/Custom.msg"
+  )
+ament_export_dependencies(rosidl_default_runtime)
+
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -29,22 +29,5 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-install(
-  DIRECTORY
-    config
-    launch
-    models
-    worlds
-    media
-    meshes
-    scripts
-    urdf
-    maps
-  DESTINATION
-    share/${PROJECT_NAME}/
-)
-install(PROGRAMS
-  scripts/move_robot.py
-  DESTINATION lib/${PROJECT_NAME}
-)
+
 ament_package()

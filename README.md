@@ -6,7 +6,7 @@
 - The ButlerBot project aims to develop an autonomous robot capable of delivering orders from the kitchen to specific tables in a cafe. 
 - used a differential drive robot
 - This project is built on ROS 2 Humble (Ubuntu 22.04)
-[image](https://github.com/noshluk2/ROS2-Autonomous-Driving-and-Navigation-SLAM-with-TurtleBot3/blob/master/image_resources/main_cover.png)
+[image](https://github.com/Vinothhk/Cafe)
 ## HOW TO INSTALL
 Create workspace
 ```bash

@@ -41,3 +41,20 @@ ros2 launch butlerbot navigation.launch.xml
 ## APPROACH
 
 ## Run the CODE
+We need a couple of terminals to execute the program successfully.
+
+In Terminal 1:
+```bash
+ros2 launch butlerbot navigation.launch.xml
+```
+
+In RViz, click on 'Open Config' and load the 'nav.rviz' from butlerbot/config/.
+Wait a couple of seconds for the robot to take pose.
+
+In Terminal 2:
+Let's run the main script..
+```bash
+ros2 run butlerbot move_robot.py
+```
+
+Now you can interact with the Spinning node through Terminal 2!

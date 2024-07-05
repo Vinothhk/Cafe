@@ -1,1 +1,3 @@
 int32 table_number
+bool kitchen_conf
+bool table_conf

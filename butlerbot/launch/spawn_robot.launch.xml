@@ -1,9 +1,6 @@
 <?xml version='1.0'?>
 <launch>
-    <!--Launch the obstacle world-->
     <include file="$(find-pkg-share butlerbot)/launch/world.launch.py"/>
-    <!-- Publish URDF file in robot_description topic -->
     <include file="$(find-pkg-share butlerbot)/launch/rsp.launch.py"/>
-    <!-- Read robot_description an spawn in gazebo running sim -->
     <include file="$(find-pkg-share butlerbot)/launch/desc.launch.py"/>
 </launch>

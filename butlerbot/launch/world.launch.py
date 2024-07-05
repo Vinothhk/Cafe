@@ -37,10 +37,10 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(
             'world',
-            default_value=[os.path.join(pkg, 'worlds', 'cafe.world')],
+            default_value=[os.path.join(pkg, 'worlds', 'cafe_new.world')],
             description='SDF world file'),
         ExecuteProcess(
-            cmd=['gazebo', [os.path.join(pkg, 'worlds', 'cafe.world')], '-s', 'libgazebo_ros_factory.so', '-s', 'libgazebo_ros_init.so'],
+            cmd=['gazebo', [os.path.join(pkg, 'worlds', 'cafe_new.world')], '-s', 'libgazebo_ros_factory.so', '-s', 'libgazebo_ros_init.so'],
             output='screen'
         )      
     ])

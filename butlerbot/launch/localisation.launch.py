@@ -6,7 +6,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     nav2_yaml = os.path.join(get_package_share_directory('butlerbot'), 'config','amcl.yaml')
-    map_file = os.path.join(get_package_share_directory('butlerbot'), 'maps', 'cafe_map.yaml')
+    map_file = os.path.join(get_package_share_directory('butlerbot'), 'maps', 'final_map.yaml')
     
     return LaunchDescription([
         Node(

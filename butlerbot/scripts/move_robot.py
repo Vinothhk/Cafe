@@ -19,8 +19,7 @@ class MoveRobot(Node):
         input_str = input('\n### USER ####\nDo you want to order anything (Y/N): ')
         if input_str=='Y' or input_str=='y':
             order = []
-            canc = []
-            cond = []
+            canc = False    
             nos = input('\n### USER ####\nEnter the Table Numbers: ').split(' ')
             nos = list(map(int,nos))  
             nos.sort(); order = order+nos;
@@ -33,7 +32,7 @@ class MoveRobot(Node):
             future = now+10
             while True: 
                 
-                c = input('\n### USER ####\nThe Order is preparing..Would you like to cancel any of the order(Y/N) ? ')
+                c = input('\n### USER ####\nThe Order is preparing..Would you like to cancel the order(Y/N) ? ')
                 if c == 'y' or c =='Y':
                     print('Order is Cancelled')
                     self.move_to_home()
@@ -41,6 +40,7 @@ class MoveRobot(Node):
                              
                 conf = input('\n### KITCHEN ####\nPress y for confirmation: ')
                 now = time.time()
+                future= now+10
                 if now>future:
                     print('Timed Out. Returning Home')
                     self.move_to_home()
@@ -50,29 +50,47 @@ class MoveRobot(Node):
                     print('Robot is moving to table')
                     c = input('\n### USER ####\nThe Order is Delivering...Would you like to cancel any of the order(Y/N) ? ')
                     if c == 'y' or c =='Y':
+                        canc = True
                         cn = input('\n### USER ####\nEnter the Table Numbers to cancel: ').split(' ')
                         cn = list(map(int,cn)) 
                         for i,j in enumerate(cn):
                             order.remove(j)
                     
                     for i in range(len(order)):
+                        
                         if order[i] ==1:
                             print(f'Moving to {order[i]} th table')
                             self.move_to_tableone()
-                            # #
+                            att = self.confirm_order()
+                            if att:
+                                print('Order Delivered')
+                            else:
+                                cafe = False
+                                print('Time Out. Skipping the table')
+                                
                         elif order[i] ==2:
                             print(f'Moving to {order[i]} th table')
                             self.move_to_tabletwo()
-                            # #
+                            att = self.confirm_order()
+                            if att:
+                                print('Order Delivered')
+                            else:
+                                canc = False
+                                print('Time Out. Skipping the table')
+                            
                         elif order[i]==3:
                             print(f'Moving to {order[i]} th table')
                             self.move_to_tablethree()
-                            # #
+                            att = self.confirm_order()
+                            if att:
+                                print('Order Delivered')
+                            else:
+                                canc = False
+                                print('Time Out. Skipping the table')
                      
-                    ##    
-                    print('Moving to Kitchen and then Home')
-                    self.move_to_kitchen()
-                    ##
+                    if canc == True:
+                        print('Moving to Kitchen and then Home')
+                        self.move_to_kitchen()
                     self.move_to_home()
                     break
                 else:
@@ -96,23 +114,23 @@ class MoveRobot(Node):
                 
     def move_to_kitchen(self):
         self.get_logger().info('Moving to Kitchen')
-        self.move_to_position(6.73,-1.657,0.02)
+        self.move_to_position(6.0,0.0,0.0)
     
-    def move_to_tableone(self):
-        self.get_logger().info('Moving to table One')
-        self.move_to_position(-4.03,-1.23,-0.707)
-            
     def move_to_tabletwo(self):
-        self.get_logger().info('Moving to table two')
-        self.move_to_position(-8.57,-1.61,-0.707)
-        
+        self.get_logger().info('Moving to table Two')
+        self.move_to_position(-18.06,-3.13,-0.707)
+            
     def move_to_tablethree(self):
         self.get_logger().info('Moving to table Three')
-        self.move_to_position(-8.66,1.53,0.707)
+        self.move_to_position(-18.27,2.83,-0.707)
+        
+    def move_to_tableone(self):
+        self.get_logger().info('Moving to table One')
+        self.move_to_position(-9.84,-2.68,0.707)
     
     def move_to_home(self):
         self.get_logger().info('Moving to Home')
-        self.move_to_position(2.56,3.58,-0.707)
+        self.move_to_position(-2.96,7.05,0.0)
 
     def move_to_position(self, x, y, z):
         self.current_goal_done = False

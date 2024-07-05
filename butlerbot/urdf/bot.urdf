@@ -450,7 +450,7 @@
             <wheel_diameter>0.18</wheel_diameter>
             <!-- Limits -->
             <max_wheel_torque>1.0</max_wheel_torque>
-            <max_wheel_acceleration>1.0</max_wheel_acceleration>
+            <max_wheel_acceleration>2.0</max_wheel_acceleration>
             <!-- Output -->
             <command_topic>cmd_vel</command_topic>
             <publish_odom>true</publish_odom>

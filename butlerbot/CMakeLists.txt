@@ -18,6 +18,11 @@ find_package(nav2_common REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(nav2_util REQUIRED)
 find_package(nav2_core REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(bb_interfaces REQUIRED)
+
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -44,7 +49,7 @@ install(
     share/${PROJECT_NAME}/
 )
 install(PROGRAMS
-  scripts/move_robot.py
+    scripts/move_robot.py
   DESTINATION lib/${PROJECT_NAME}
 )
 ament_package()

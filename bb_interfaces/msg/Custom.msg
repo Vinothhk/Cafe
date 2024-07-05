@@ -1,3 +1,0 @@
-int32 table_number
-bool confirmation
-bool cancelled

@@ -8,8 +8,8 @@ from launch import LaunchDescription
 
 def generate_launch_description():
 
-    position = [0.0, 0.0, 0.2]
-    orientation = [0.0, 0.0, 0.0]
+    position = [-3.0, 7.0, 0.2]
+    orientation = [0.0, 0.0, -1.57]
     robot_base_name = "butler_bot"
 
     entity_name = robot_base_name+"-"+str(int(random.random()*100000))

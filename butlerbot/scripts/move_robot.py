@@ -122,11 +122,11 @@ class MoveRobot(Node):
             
     def move_to_tablethree(self):
         self.get_logger().info('Moving to table Three')
-        self.move_to_position(-18.27,2.83,-0.707)
+        self.move_to_position(-18.27,2.83,0.707)
         
     def move_to_tableone(self):
         self.get_logger().info('Moving to table One')
-        self.move_to_position(-9.84,-2.68,0.707)
+        self.move_to_position(-9.84,-2.68,-0.707)
     
     def move_to_home(self):
         self.get_logger().info('Moving to Home')

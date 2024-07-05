@@ -8,13 +8,21 @@ The ButlerBot project aims to develop an autonomous robot capable of delivering 
 This project is built on ROS 2 Humble (Ubuntu 22.04)
 
 ## HOW TO INSTALL
-Follow the comments to setup the project
-'''bash
+Create workspace
+```bash
 mkdir -p ros2_ws/src
-
 cd ros2_ws/src
-
+```
+clone this repository
+```bash
 git clone
+```
+Build the workspace
+```bash
+cd ..
+colcon build
+source install/setup.bash
+```
 
 ## USAGE
 

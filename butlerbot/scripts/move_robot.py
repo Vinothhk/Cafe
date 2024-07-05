@@ -31,7 +31,14 @@ class MoveRobot(Node):
             
             now = time.time()
             future = now+10
-            while True:              
+            while True: 
+                
+                c = input('\n### USER ####\nThe Order is preparing..Would you like to cancel any of the order(Y/N) ? ')
+                if c == 'y' or c =='Y':
+                    print('Order is Cancelled')
+                    self.move_to_home()
+                    break
+                             
                 conf = input('\n### KITCHEN ####\nPress y for confirmation: ')
                 now = time.time()
                 if now>future:
@@ -52,18 +59,20 @@ class MoveRobot(Node):
                         if order[i] ==1:
                             print(f'Moving to {order[i]} th table')
                             self.move_to_tableone()
- 
+                            # #
                         elif order[i] ==2:
                             print(f'Moving to {order[i]} th table')
                             self.move_to_tabletwo()
-                            
+                            # #
                         elif order[i]==3:
                             print(f'Moving to {order[i]} th table')
                             self.move_to_tablethree()
-  
-                        
+                            # #
+                     
+                    ##    
                     print('Moving to Kitchen and then Home')
                     self.move_to_kitchen()
+                    ##
                     self.move_to_home()
                     break
                 else:
@@ -122,22 +131,6 @@ class MoveRobot(Node):
     def feedback_callback(self, feedback_msg):
         feedback = feedback_msg.feedback
         #self.get_logger().info('FEEDBACK:' + str(feedback) )
-    
-    # def goal_response_callback(self, future):
-    #     goal_handle = future.result()
-    #     if not goal_handle.accepted:
-    #         self.get_logger().info('Goal rejected')
-    #         return
-    #     self.get_logger().info('Goal accepted')
-
-    #     result_future = goal_handle.get_result_async()
-    #     rclpy.spin_until_future_complete(self, result_future)
-    #     result = result_future.result()
-    #     if result.status == GoalStatus.STATUS_SUCCEEDED:
-    #         self.get_logger().info('Goal succeeded!')
-    #     else:
-    #         self.get_logger().info('Goal failed with status: {0}'.format(result.status))
-    #     self.current_goal_done = True
         
     def goal_response_callback(self, future):
         goal_handle = future.result()

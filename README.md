@@ -39,8 +39,23 @@ ros2 launch butlerbot navigation.launch.xml
 ```
 
 ## APPROACH
+- Move Robot Node Initialized
+#### ACTION CLIENT
+- An Action Client for **NavigatetoPose** action is created, which is responsible for sending navigation goals to the robot.
+#### ORDER HANDLING
+- The _process_ method handles the main logic of interacting with the user, taking orders, confirming deliveries, and handling cancellations.
+- User input is taken to determine if an order is to be placed.
+- If an order is placed, the table numbers are collected, and the robot is instructed to move to the kitchen to pick up the order.
+- Once the kitchen confirms that the order is ready, the robot proceeds to deliver the order to the specified tables.
+- The user is asked for confirmation at each table, and the order is marked as delivered if confirmed.
+#### NAVIGATION FUNCTIONS
+- The methods _move_to_kitchen_, _move_to_tableone_, _move_to_tabletwo_, _move_to_tablethree_, and _move_to_home_ are used to move the robot to specific locations.
+- These methods call the _move_to_position_ method with the coordinates of the target location.
+#### FEEDBACK & RESULT HANDLING
+- The _goal_response_callback_ method handles the response from the action server, checking if the goal was accepted.
+- The __wait_for_result_ method waits for the action server to complete the goal and logs the result.
 
-## Run the CODE
+## RUN THE CODE
 We need a couple of terminals to execute the program successfully.
 
 In Terminal 1:
@@ -58,3 +73,5 @@ ros2 run butlerbot move_robot.py
 ```
 
 Now you can interact with the Spinning node through Terminal 2!
+
+ ![alt text](https://github.com/Vinothhk/Cafe/blob/main/butlerbot/images/Screenshot%20from%202024-07-06%2008-52-33.png)

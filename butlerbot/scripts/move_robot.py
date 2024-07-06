@@ -50,7 +50,7 @@ class MoveRobot(Node):
                     print('Robot is moving to table')
                     c = input('\n### USER ####\nThe Order is Delivering...Would you like to cancel any of the order(Y/N) ? ')
                     if c == 'y' or c =='Y':
-                        canc = True
+                        canc = True   # BOOL VALUE. (TRUE - if any order get cancel or robot is not attended at the table)
                         cn = input('\n### USER ####\nEnter the Table Numbers to cancel: ').split(' ')
                         cn = list(map(int,cn)) 
                         for i,j in enumerate(cn):
@@ -65,7 +65,7 @@ class MoveRobot(Node):
                             if att:
                                 print('Order Delivered')
                             else:
-                                cafe = False
+                                canc =True
                                 print('Skipping the table')
                                 
                         elif order[i] ==2:
@@ -75,7 +75,7 @@ class MoveRobot(Node):
                             if att:
                                 print('Order Delivered')
                             else:
-                                canc = False
+                                canc = True
                                 print('Skipping the table')
                             
                         elif order[i]==3:
@@ -85,7 +85,7 @@ class MoveRobot(Node):
                             if att:
                                 print('Order Delivered')
                             else:
-                                canc = False
+                                canc = True
                                 print('Skipping the table')
                      
                     if canc == True:

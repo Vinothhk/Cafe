@@ -65,7 +65,7 @@ In Terminal 1:
 ros2 launch butlerbot navigation.launch.xml
 ```
 
-In RViz, click on 'Open Config' and load the 'nav.rviz' from butlerbot/config/.
+In RViz, click on 'Open Config' and load the 'nav_viz.rviz' from butlerbot/config/.
 Wait a couple of seconds for the robot to take pose.
 
 In Terminal 2:

@@ -66,7 +66,7 @@ class MoveRobot(Node):
                                 print('Order Delivered')
                             else:
                                 cafe = False
-                                print('Time Out. Skipping the table')
+                                print('Skipping the table')
                                 
                         elif order[i] ==2:
                             print(f'Moving to {order[i]} th table')
@@ -76,7 +76,7 @@ class MoveRobot(Node):
                                 print('Order Delivered')
                             else:
                                 canc = False
-                                print('Time Out. Skipping the table')
+                                print('Skipping the table')
                             
                         elif order[i]==3:
                             print(f'Moving to {order[i]} th table')
@@ -86,7 +86,7 @@ class MoveRobot(Node):
                                 print('Order Delivered')
                             else:
                                 canc = False
-                                print('Time Out. Skipping the table')
+                                print('Skipping the table')
                      
                     if canc == True:
                         print('Moving to Kitchen and then Home')

@@ -48,6 +48,8 @@ ros2 launch butlerbot navigation.launch.xml
 - If an order is placed, the table numbers are collected, and the robot is instructed to move to the kitchen to pick up the order.
 - Once the kitchen confirms that the order is ready, the robot proceeds to deliver the order to the specified tables.
 - The user is asked for confirmation at each table, and the order is marked as delivered if confirmed.
+- The robot moves to home after successful deliveries of orders.
+- If any of the order get cancelled or the the customer fail to attend the robot at the table, it then moves to kitchen before returning to Home. 
 #### NAVIGATION FUNCTIONS
 - The methods _move_to_kitchen_, _move_to_tableone_, _move_to_tabletwo_, _move_to_tablethree_, and _move_to_home_ are used to move the robot to specific locations.
 - These methods call the _move_to_position_ method with the coordinates of the target location.
@@ -72,6 +74,8 @@ Let's run the main script..
 ros2 run butlerbot move_robot.py
 ```
 
-Now you can interact with the Spinning node through Terminal 2!
+Now you can interact with the Spinning node through Terminal 2!!
+
+(Pic of Running Program)
 
  ![alt text](https://github.com/Vinothhk/Cafe/blob/main/butlerbot/images/Screenshot%20from%202024-07-06%2008-52-33.png)

@@ -140,10 +140,11 @@ class MoveRobot(Node):
         goal_pose.pose.pose.orientation.z = z
         self.action_client.wait_for_server()
         send_goal_future = self.action_client.send_goal_async(goal_pose, feedback_callback=self.feedback_callback)
+        rclpy.spin_until_future_complete(self, self.future)
         send_goal_future.add_done_callback(self.goal_response_callback)
         
-        while not self.current_goal_done:
-            rclpy.spin_once(self)
+        # while not self.current_goal_done:
+        #     rclpy.spin_once(self)
             
     def feedback_callback(self, feedback_msg): #process feedback from the Action Server
         feedback = feedback_msg.feedback
